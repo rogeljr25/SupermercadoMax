@@ -1,96 +1,29 @@
-import React, { useState } from 'react';
-
-// Dados simulados de produtos
-const initialProducts = [
-  {
-    id: 1,
-    title: 'Air Fryer Digital 4L',
-    category: 'Eletroportáteis',
-    price: 259.90,
-    oldPrice: 329.90,
-    image: 'https://via.placeholder.com/200?text=Air+Fryer',
-    badge: '-21%'
-  },
-  {
-    id: 2,
-    title: 'Liquidificador 1200W Inox',
-    category: 'Eletroportáteis',
-    price: 119.90,
-    oldPrice: 159.90,
-    image: 'https://via.placeholder.com/200?text=Liquidificador',
-    badge: '-25%'
-  },
-  {
-    id: 3,
-    title: 'Cafeteira Express 15 Bar',
-    category: 'Eletroportáteis',
-    price: 489.00,
-    oldPrice: 599.00,
-    image: 'https://via.placeholder.com/200?text=Cafeteira',
-    badge: 'Oferta'
-  },
-  {
-    id: 4,
-    title: 'Kit Mantimentos Inox 5 Pçs',
-    category: 'Utensílios',
-    price: 89.90,
-    oldPrice: 110.00,
-    image: 'https://via.placeholder.com/200?text=Kit+Inox',
-    badge: 'Novo'
-  }
-];
-
-export default function SuperMaxHome() {
-  const [cart, setCart] = useState([]);
-  const [search, setSearch] = useState('');
-
-  // Adicionar ao carrinho
-  const handleAddToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]);
-  };
-
-  // Filtragem de produtos por busca
-  const filteredProducts = initialProducts.filter((product) =>
-    product.title.toLowerCase().includes(search.toLowerCase())
-  );
-
-  return (
-    <div style={styles.appContainer}>
-      {/* 1. Header Principal */}
-      <header style={styles.header}>
-        <div style={styles.logo}>SuperMax</div>
-        
-        <div style={styles.searchBar}>
-          <input
-            type="text"
-            placeholder="Buscar produtos, marcas e categorias..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            style={styles.searchInput}
-          />
-          <button style={styles.searchBtn}>🔍</button>
-        </div>
-
-        <div style={styles.userActions}>
-          <button style={styles.iconBtn}>👤 Minha Conta</button>
-          <div style={styles.cartBadge}>
-            🛒 Carrinho <b>({cart.length})</b>
-          </div>
-        </div>
-      </header>
-
-      {/* 2. Barra de Categorias Rápida */}
-      <nav style={styles.categoryNav}>
-        <a href="#encarte" style={styles.navLink}>% Encarte do Dia</a>
-        <a href="#clube" style={styles.navLink}>★ Clube Max</a>
-        <a href="#cupons" style={styles.navLink}>🏷️ Cupons</a>
-        <a href="#cashback" style={styles.navLink}>💰 Cashback</a>
-        <a href="#cartao" style={styles.navLink}>💳 Cartão SuperMax</a>
-      </nav>
-
-      <main style={styles.mainContent}>
-        {/* 3. Banners Promocionais */}
-        <section style={styles.bannerGrid}>
-          <div style={styles.bannerCard}>
-            <p style={styles.bannerTag}>Exclusivo Cartão SuperMax</p>
-            <h3>Com até 20x sem juros + Frete Grátis</h3>
+const photo={fruit:'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=800&q=82',coffee:'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=82',milk:'https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=82',pasta:'https://images.unsplash.com/photo-1556761223-4c4282c73f77?auto=format&fit=crop&w=800&q=82',drink:'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=800&q=82',juice:'https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=82',clean:'https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=800&q=82',fryer:'https://images.unsplash.com/photo-1647191475600-1ab0a1a2a378?auto=format&fit=crop&w=800&q=82',blender:'https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=800&q=82'};
+const products=[{id:1,name:'Maçã Gala, bandeja 1 kg',category:'Hortifruti',price:8.99,oldPrice:11.49,image:photo.fruit},{id:2,name:'Banana Prata, 1 kg',category:'Hortifruti',price:5.99,oldPrice:7.49,image:photo.fruit},{id:3,name:'Mix de legumes frescos, 500 g',category:'Hortifruti',price:9.9,oldPrice:12.9,image:photo.fruit},{id:4,name:'Café Torrado e Moído 500 g',category:'Mercearia',price:16.49,oldPrice:19.99,image:photo.coffee},{id:5,name:'Leite Integral UHT 1 litro',category:'Mercearia',price:4.79,oldPrice:5.49,image:photo.milk},{id:6,name:'Macarrão Espaguete 500 g',category:'Mercearia',price:5.49,oldPrice:6.99,image:photo.pasta},{id:7,name:'Refrigerante Cola 2 litros',category:'Bebidas',price:8.49,oldPrice:10.99,image:photo.drink},{id:8,name:'Suco de Laranja Integral 1 L',category:'Bebidas',price:12.9,oldPrice:15.49,image:photo.juice},{id:9,name:'Água Mineral sem gás 1,5 L',category:'Bebidas',price:2.29,oldPrice:2.99,image:photo.drink},{id:10,name:'Detergente Neutro 500 ml',category:'Limpeza',price:2.49,oldPrice:3.29,image:photo.clean},{id:11,name:'Desinfetante Lavanda 2 L',category:'Limpeza',price:7.99,oldPrice:9.49,image:photo.clean},{id:12,name:'Lava-roupas líquido 3 L',category:'Limpeza',price:21.9,oldPrice:27.9,image:photo.clean},{id:13,name:'Air Fryer Digital 4 litros',category:'Eletro',price:249.9,oldPrice:319.9,image:photo.fryer},{id:14,name:'Liquidificador 1200W Inox',category:'Eletro',price:109.9,oldPrice:149.9,image:photo.blender},{id:15,name:'Cafeteira elétrica 30 xícaras',category:'Eletro',price:129.9,oldPrice:169.9,image:photo.coffee}];
+const categories=['Todos',...new Set(products.map(p=>p.category))],icons={Hortifruti:'🥬',Mercearia:'🛒',Bebidas:'🥤',Limpeza:'✨',Eletro:'⚡'};
+let activeCategory='Todos',query='',cart=[];
+try{cart=JSON.parse(localStorage.getItem('supermax-cart')||'[]')}catch{cart=[]}
+const money=value=>value.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}),grid=document.querySelector('#product-grid'),filters=document.querySelector('#filters'),toast=document.querySelector('#toast'),resultCount=document.querySelector('#result-count');
+const visible=()=>products.filter(product=>(activeCategory==='Todos'||product.category===activeCategory)&&`${product.name} ${product.category}`.toLocaleLowerCase('pt-BR').includes(query.toLocaleLowerCase('pt-BR')));
+const save=()=>localStorage.setItem('supermax-cart',JSON.stringify(cart));
+function renderFilters(){filters.innerHTML=categories.map(category=>`<button class="filter ${category===activeCategory?'active':''}" type="button" data-category="${category}" aria-pressed="${category===activeCategory}">${category}</button>`).join('')}
+function card(product){return `<article class="product"><img class="product__image" src="${product.image}" alt="${product.name}" loading="lazy"><span class="product__meta">${product.category}</span><h3>${product.name}</h3><div class="product__old-price">${money(product.oldPrice)}</div><div class="product__price">${money(product.price)} <small>à vista</small></div><button class="buy-button" type="button" data-add="${product.id}">Adicionar</button></article>`}
+function renderProducts(){const list=visible();resultCount.textContent=`${list.length} ${list.length===1?'produto encontrado':'produtos encontrados'}`;if(!list.length){grid.innerHTML='<div class="empty">Não encontramos produtos com esses filtros.<br>Experimente outra busca.</div>';return}const groups=activeCategory==='Todos'?categories.slice(1):[activeCategory];grid.innerHTML=groups.map(category=>{const items=list.filter(product=>product.category===category);return items.length?`<section class="catalog-section"><div class="catalog-section__header"><span aria-hidden="true">${icons[category]}</span><h3>${category}</h3></div><div class="product-grid">${items.map(card).join('')}</div></section>`:''}).join('')}
+function renderCart(){const count=cart.reduce((total,item)=>total+item.quantity,0),total=cart.reduce((value,item)=>value+item.price*item.quantity,0),counter=document.querySelector('#cart-count');counter.textContent=count;counter.classList.toggle('visible',count>0);document.querySelector('#cart-total').textContent=money(total);document.querySelector('#checkout').disabled=!count;document.querySelector('#cart-items').innerHTML=count?cart.map(item=>`<div class="cart-item"><img class="cart-item__image" src="${item.image}" alt=""><div><h3>${item.name}</h3><p>${money(item.price)}</p></div><div class="quantity"><button type="button" data-change="${item.id}" data-delta="-1" aria-label="Diminuir quantidade">−</button><span>${item.quantity}</span><button type="button" data-change="${item.id}" data-delta="1" aria-label="Aumentar quantidade">+</button></div></div>`).join(''):'<div class="cart-empty">Seu carrinho está vazio.<br>Adicione produtos para começar.</div>'}
+function add(id){const product=products.find(item=>item.id===id),existing=cart.find(item=>item.id===id);if(!product)return;if(existing)existing.quantity++;else cart.push({...product,quantity:1});save();renderCart();show(`${product.name} adicionado ao carrinho`)}
+function change(id,delta){const item=cart.find(product=>product.id===id);if(!item)return;item.quantity+=delta;if(item.quantity<=0)cart=cart.filter(product=>product.id!==id);save();renderCart()}
+let toastTimer;function show(message){toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2600)}
+function openCart(open){const overlay=document.querySelector('#cart-overlay');overlay.classList.toggle('open',open);overlay.setAttribute('aria-hidden',String(!open));if(open)document.querySelector('#close-cart').focus();else document.querySelector('#cart-button').focus()}
+filters.addEventListener('click',event=>{const category=event.target.dataset.category;if(category){activeCategory=category;renderFilters();renderProducts()}});
+grid.addEventListener('click',event=>{const id=Number(event.target.dataset.add);if(id)add(id)});
+document.querySelector('#cart-items').addEventListener('click',event=>{const id=Number(event.target.dataset.change);if(id)change(id,Number(event.target.dataset.delta))});
+document.querySelector('#cart-button').addEventListener('click',()=>openCart(true));document.querySelector('#close-cart').addEventListener('click',()=>openCart(false));document.querySelector('#cart-overlay').addEventListener('click',event=>{if(event.target.id==='cart-overlay')openCart(false)});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')openCart(false)});
+document.querySelector('#search-input').addEventListener('input',event=>{query=event.target.value.trim();renderProducts()});
+document.querySelector('#search-form').addEventListener('submit',event=>{event.preventDefault();document.querySelector('#ofertas').scrollIntoView({behavior:'smooth'})});
+document.querySelector('#clear-filters').addEventListener('click',()=>{activeCategory='Todos';query='';document.querySelector('#search-input').value='';renderFilters();renderProducts()});
+document.querySelectorAll('[data-scroll]').forEach(button=>button.addEventListener('click',()=>document.querySelector(`#${button.dataset.scroll}`).scrollIntoView({behavior:'smooth'})));
+document.querySelectorAll('.nav [data-category]').forEach(link=>link.addEventListener('click',()=>{activeCategory=link.dataset.category;renderFilters();renderProducts()}));
+document.querySelector('#account-button').addEventListener('click',()=>show('Área da conta estará disponível em breve.'));
+document.querySelector('#checkout').addEventListener('click',()=>{show('Pedido iniciado! Escolha o pagamento no próximo passo.');openCart(false)});
+renderFilters();renderProducts();renderCart();
