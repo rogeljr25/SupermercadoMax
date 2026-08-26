@@ -3,32 +3,209 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="SuperMax — seu mercado online, com ofertas e entrega rápida.">
+  <meta name="description" content="SuperMax — mercado online com entrega rápida em Belo Horizonte. Ofertas selecionadas para o seu dia a dia.">
   <title>SuperMax | Seu mercado online</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#ofertas">Ir para as ofertas</a>
-  <div class="top-strip"><div class="container top-strip__content"><span>📍 Entrega em Belo Horizonte e região</span><span>Compre online e receba ainda hoje</span></div></div>
+
+  <div class="top-strip">
+    <div class="container top-strip__content">
+      <span>📍 Entrega em Belo Horizonte e região</span>
+      <span id="today-line">Compre online e receba ainda hoje</span>
+    </div>
+  </div>
+
   <header class="header">
     <div class="container header__content">
-      <a class="brand" href="#inicio" aria-label="Página inicial SuperMax"><span class="brand__mark">S</span><span class="brand__name">Super<b>Max</b></span></a>
-      <form class="search" id="search-form" role="search"><input id="search-input" type="search" aria-label="Buscar produtos" placeholder="Busque por produto ou categoria"><button type="submit" aria-label="Buscar">⌕</button></form>
-      <div class="header-actions"><button class="action-link" id="account-button" type="button"><span aria-hidden="true">◉</span><span><small>Olá, visitante</small><strong>Minha conta</strong></span></button><button class="cart-button" id="cart-button" type="button" aria-haspopup="dialog"><span aria-hidden="true">🛒</span><span class="cart-label">Carrinho</span><span class="cart-count" id="cart-count">0</span></button></div>
+      <a class="brand" href="#inicio" aria-label="Página inicial SuperMax">
+        <span class="brand__mark">S</span>
+        <span class="brand__name">Super<b>Max</b></span>
+      </a>
+
+      <form class="search" id="search-form" role="search">
+        <input id="search-input" type="search" aria-label="Buscar produtos" placeholder="Busque por produto ou categoria">
+        <button type="submit" aria-label="Buscar">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M13.6 12.2a6 6 0 1 0-1.4 1.4l4 4 1.4-1.4-4-4ZM8 12.5A4.5 4.5 0 1 1 8 3.5a4.5 4.5 0 0 1 0 9Z" fill="currentColor"/></svg>
+        </button>
+      </form>
+
+      <div class="header-actions">
+        <button class="action-link" id="account-button" type="button">
+          <span class="action-link__icon" aria-hidden="true">◉</span>
+          <span><small>Olá, visitante</small><strong>Minha conta</strong></span>
+        </button>
+        <button class="cart-button" id="cart-button" type="button" aria-haspopup="dialog">
+          <span aria-hidden="true">
+            <svg viewBox="0 0 22 22" width="19" height="19"><path d="M2 2h2l1.6 10.6a2 2 0 0 0 2 1.7h7.8a2 2 0 0 0 2-1.6L19 6H5.2M8 19a1.3 1.3 0 1 0 0-2.6A1.3 1.3 0 0 0 8 19Zm8.5 0a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="cart-label">Carrinho</span>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
     </div>
+
+    <nav class="nav" aria-label="Categorias">
+      <div class="container nav__content" id="nav-content">
+        <a href="#ofertas" class="nav__all">🔥 Ofertas do dia</a>
+      </div>
+    </nav>
   </header>
-  <nav class="nav" aria-label="Categorias"><div class="container nav__content"><a href="#ofertas">🔥 Ofertas do dia</a><a href="#ofertas" data-category="Hortifruti">Hortifruti</a><a href="#ofertas" data-category="Mercearia">Mercearia</a><a href="#ofertas" data-category="Bebidas">Bebidas</a><a href="#ofertas" data-category="Limpeza">Limpeza</a><a href="#ofertas" data-category="Eletro">Eletroportáteis</a><a href="#beneficios">Clube SuperMax</a></div></nav>
-  <main class="container main" id="inicio">
-    <section class="hero" aria-labelledby="hero-title"><div class="hero__content"><p class="eyebrow">Semana da economia</p><h1 id="hero-title">Ofertas que fazem seu dinheiro render <b>mais.</b></h1><p>Seleção especial para abastecer sua casa com qualidade e preço justo.</p><button class="primary-button" type="button" data-scroll="ofertas">Ver ofertas da semana <span aria-hidden="true">→</span></button></div><div class="hero__badge"><span>Economize</span><strong>até 22%</strong><small>nas ofertas selecionadas</small></div></section>
-    <section class="benefits" id="beneficios" aria-label="Benefícios"><div class="benefit"><div class="benefit__icon">🚚</div><div><strong>Entrega rápida</strong><span>Receba no mesmo dia</span></div></div><div class="benefit"><div class="benefit__icon">🔒</div><div><strong>Pagamento seguro</strong><span>Compre com tranquilidade</span></div></div><div class="benefit"><div class="benefit__icon">💳</div><div><strong>Até 3x sem juros</strong><span>Em compras selecionadas</span></div></div></section>
-    <section id="ofertas" class="offers" aria-labelledby="offers-title"><div class="section-heading"><div><p class="eyebrow eyebrow--dark">Economia para a casa toda</p><h2 id="offers-title">Ofertas em destaque</h2><p>Produtos selecionados para você economizar.</p></div><button class="text-button" id="clear-filters" type="button">Limpar filtros</button></div><div class="filters" id="filters" aria-label="Filtrar produtos"></div><p class="result-count" id="result-count" aria-live="polite"></p><div id="product-grid"></div></section>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">Mercado online · Belo Horizonte e região</p>
+          <h1 id="hero-title">A feira, o mercado e a farmácia da sua semana, <em>numa entrega só.</em></h1>
+          <p class="hero__lead">Selecionamos produtos frescos e de marcas de confiança para caber no seu tempo e no seu orçamento — sem fila e sem sacrifício na qualidade.</p>
+          <div class="hero__actions">
+            <button class="primary-button" type="button" data-scroll="ofertas">Ver ofertas da semana</button>
+            <a class="ghost-button" href="#beneficios">Conhecer o Clube SuperMax</a>
+          </div>
+          <dl class="hero__stats">
+            <div><dt>150+</dt><dd>itens selecionados</dd></div>
+            <div><dt>Até 2h</dt><dd>para entrega expressa</dd></div>
+            <div><dt>4,8/5</dt><dd>avaliação dos clientes</dd></div>
+          </dl>
+        </div>
+
+        <aside class="board" aria-label="Ofertas do dia em destaque">
+          <div class="board__header">
+            <span class="board__title">Painel de ofertas</span>
+            <span class="board__date" id="board-date"></span>
+          </div>
+          <ul class="board__list" id="board-list"></ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="benefits" id="beneficios" aria-label="Benefícios">
+      <div class="container benefits__grid">
+        <div class="benefit">
+          <div class="benefit__icon" aria-hidden="true">🚚</div>
+          <div><strong>Entrega rápida</strong><span>Peça até 16h e receba ainda hoje</span></div>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon" aria-hidden="true">🔒</div>
+          <div><strong>Pagamento seguro</strong><span>Dados protegidos em todas as compras</span></div>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon" aria-hidden="true">💳</div>
+          <div><strong>Até 3x sem juros</strong><span>Em compras selecionadas do site</span></div>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon" aria-hidden="true">↺</div>
+          <div><strong>Troca facilitada</strong><span>7 dias para trocar o que não serviu</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ofertas" class="offers" aria-labelledby="offers-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow--dark">Economia para a casa toda</p>
+            <h2 id="offers-title">Ofertas em destaque</h2>
+            <p>Produtos selecionados para você economizar sem abrir mão de qualidade.</p>
+          </div>
+          <button class="text-button" id="clear-filters" type="button">Limpar filtros</button>
+        </div>
+
+        <div class="filters" id="filters" aria-label="Filtrar produtos"></div>
+
+        <div class="offers__status">
+          <p class="result-count" id="result-count" aria-live="polite"></p>
+          <p class="free-shipping" id="free-shipping" aria-live="polite"></p>
+        </div>
+
+        <div id="product-sections"></div>
+      </div>
+    </section>
+
+    <section class="club" aria-labelledby="club-title">
+      <div class="container club__grid">
+        <div class="club__copy">
+          <p class="eyebrow">Clube SuperMax</p>
+          <h2 id="club-title">Cadastre-se e economize em todas as compras.</h2>
+          <p>Receba um resumo semanal com os melhores preços da sua região, cupons exclusivos e prioridade nos horários de entrega expressa.</p>
+          <form class="newsletter" id="newsletter-form">
+            <label class="sr-only" for="newsletter-email">Seu e-mail</label>
+            <input id="newsletter-email" type="email" required placeholder="seuemail@exemplo.com">
+            <button type="submit">Quero participar</button>
+          </form>
+          <small>Sem spam. Cancele quando quiser.</small>
+        </div>
+        <ul class="club__list">
+          <li><span aria-hidden="true">①</span>Cupom de boas-vindas na primeira compra</li>
+          <li><span aria-hidden="true">②</span>Ofertas exclusivas todas as terças-feiras</li>
+          <li><span aria-hidden="true">③</span>Frete grátis a partir de R$ 99 em compras selecionadas</li>
+        </ul>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><div class="container footer__content"><span><strong>SuperMax</strong> · O mercado que cabe na sua rotina.</span><span>© 2026 SuperMax. Todos os direitos reservados.</span></div></footer>
-  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"><aside class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title"><div class="cart-panel__header"><div><p class="eyebrow eyebrow--dark">Itens selecionados</p><h2 id="cart-title">Seu carrinho</h2></div><button class="close-button" id="close-cart" type="button" aria-label="Fechar carrinho">×</button></div><div class="cart-items" id="cart-items"></div><div class="cart-panel__footer"><div class="cart-total"><span>Total</span><span id="cart-total">R$ 0,00</span></div><button class="checkout" id="checkout" type="button" disabled>Finalizar compra</button><small>Ambiente seguro · pagamento no próximo passo</small></div></aside></div>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <span class="brand__name brand__name--light">Super<b>Max</b></span>
+        <p>O mercado que cabe na sua rotina — qualidade e preço justo, todos os dias.</p>
+      </div>
+      <div class="footer__col">
+        <h3>Categorias</h3>
+        <ul id="footer-categories"></ul>
+      </div>
+      <div class="footer__col">
+        <h3>Ajuda</h3>
+        <ul>
+          <li><a href="#">Como funciona a entrega</a></li>
+          <li><a href="#">Formas de pagamento</a></li>
+          <li><a href="#">Trocas e devoluções</a></li>
+          <li><a href="#">Fale conosco</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>SuperMax</h3>
+        <ul>
+          <li><a href="#">Sobre nós</a></li>
+          <li><a href="#beneficios">Clube SuperMax</a></li>
+          <li><a href="#">Trabalhe conosco</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© 2026 SuperMax. Todos os direitos reservados.</span>
+      <span>Pagamento em Pix, todos os cartões de crédito e débito</span>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true">
+    <aside class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <div class="cart-panel__header">
+        <div>
+          <p class="eyebrow eyebrow--dark">Itens selecionados</p>
+          <h2 id="cart-title">Seu carrinho</h2>
+        </div>
+        <button class="close-button" id="close-cart" type="button" aria-label="Fechar carrinho">×</button>
+      </div>
+
+      <div class="cart-items" id="cart-items"></div>
+
+      <div class="cart-panel__footer">
+        <p class="cart-savings" id="cart-savings"></p>
+        <div class="cart-total"><span>Total</span><span id="cart-total">R$ 0,00</span></div>
+        <button class="checkout" id="checkout" type="button" disabled>Finalizar compra</button>
+        <small>Ambiente seguro · pagamento no próximo passo</small>
+      </div>
+    </aside>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
